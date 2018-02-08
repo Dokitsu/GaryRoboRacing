@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 727
+    x: 730
     y: 51
     width: 1832
     height: 1358
@@ -317,10 +317,10 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 365
-    y: 92
-    width: 1795
-    height: 943
+    x: 1019
+    y: 100
+    width: 1146
+    height: 913
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
   m_Stats: 0
@@ -349,25 +349,25 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
-      width: 1795
-      height: 926
+      width: 1146
+      height: 896
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 897.5, y: 463}
+    m_Translation: {x: 573, y: 448}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -897.5
-      y: -463
-      width: 1795
-      height: 926
+      x: -573
+      y: -448
+      width: 1146
+      height: 896
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
-  m_LastWindowPixelSize: {x: 1795, y: 943}
+  m_LastWindowPixelSize: {x: 1146, y: 913}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
@@ -393,15 +393,15 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 727
+    x: 730
     y: 100
     width: 285
     height: 913
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 30faffff3afbffff00000000
+    m_SelectedIDs: 3a3affff
+    m_LastClickedID: -50630
+    m_ExpandedIDs: 2473feff3000ffffd037ffff3a3affffe8fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -446,19 +446,19 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 1016
+    x: 1019
     y: 100
     width: 1146
     height: 913
   m_SceneLighting: 1
-  lastFramingTime: 8749.676115836568
+  lastFramingTime: 27058.472021818816
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.2968106, y: -0.23826294, z: 0.73213524}
+    m_Target: {x: 1.0001643, y: 1.3796959, z: -2.1130471}
     speed: 2
-    m_Value: {x: -0.2968106, y: -0.23826294, z: 0.73213524}
+    m_Value: {x: 1.0001643, y: 1.3796959, z: -2.1130471}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -481,13 +481,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.052063745, y: -0.6171939, z: 0.040986042, w: -0.78401065}
+    m_Target: {x: 0.00734403, y: -0.20374535, z: -0.0015219646, w: -0.97897923}
     speed: 2
-    m_Value: {x: -0.052063964, y: -0.6171965, z: 0.040986218, w: -0.784014}
+    m_Value: {x: 0.007344145, y: -0.20374854, z: -0.0015219884, w: -0.97899455}
   m_Size:
-    m_Target: 5.4073954
+    m_Target: 7.8483334
     speed: 2
-    m_Value: 5.4073954
+    m_Value: 7.8483334
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -546,7 +546,7 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 727
+    x: 730
     y: 1034
     width: 1435
     height: 353
@@ -571,7 +571,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 20}
     m_SelectedIDs: d83e0000
     m_LastClickedID: 16088
-    m_ExpandedIDs: 
+    m_ExpandedIDs: ae240000d2240000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -599,21 +599,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 4225000098250000
+    m_ExpandedIDs: ae240000d2240000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Playmov
-      m_OriginalName: Playmov
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 9634
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -702,7 +702,7 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 2166
+    x: 2169
     y: 100
     width: 393
     height: 1287
