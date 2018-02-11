@@ -17,7 +17,8 @@ public class Wheel_Rotation : MonoBehaviour
     private float breakForce = 100;
 
     private float currentSpeed;
-    private float maxSpeed = 100;
+    private float maxSpeed = 150;
+    private float minSpeed = 50;
     
     // Use this for initialization
     void Start()
@@ -36,14 +37,19 @@ public class Wheel_Rotation : MonoBehaviour
 
         float v = angleSpeed;
 
-        if(currentSpeed < maxSpeed)
+        if(currentSpeed < maxSpeed && currentSpeed > minSpeed)
         {
             wheel_.motorTorque = v;
         }
-        else
+        if(currentSpeed > maxSpeed)
         {
             wheel_.motorTorque = 0;
-            Debug.Log(currentSpeed);
+            Debug.Log("Max");
+        }
+        if(currentSpeed < minSpeed)
+        {
+            wheel_.motorTorque = 10;
+            Debug.Log("Min");
         }
 
         if(Input.GetKeyDown(KeyCode.LeftArrow))
