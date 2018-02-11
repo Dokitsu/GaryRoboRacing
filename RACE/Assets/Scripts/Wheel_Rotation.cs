@@ -7,6 +7,10 @@ public class Wheel_Rotation : MonoBehaviour
     public float motorMovement;
     public WheelCollider wheel_;
 
+    private float angleSpeed = 0;
+
+    public GameObject Body;
+
     // Use this for initialization
     void Start()
     {
@@ -16,7 +20,9 @@ public class Wheel_Rotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float v = motorMovement;
+        angleSpeed = Body.GetComponent<Body_Tilt>().bodyAngle; 
+
+        float v = angleSpeed;
 
         wheel_.motorTorque = v;
     }
