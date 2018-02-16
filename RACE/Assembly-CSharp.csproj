@@ -46,7 +46,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Playmov.cs" />
+     <Compile Include="Assets\Scripts\Body_Tilt.cs" />
+     <Compile Include="Assets\Scripts\Campos.cs" />
+     <Compile Include="Assets\Scripts\First_Place_Col.cs" />
+     <Compile Include="Assets\Scripts\Wheel_Rotation.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

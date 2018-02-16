@@ -44,12 +44,12 @@ public class Wheel_Rotation : MonoBehaviour
         if(currentSpeed > maxSpeed)
         {
             wheel_.motorTorque = 0;
-            Debug.Log("Max");
+            //Debug.Log("Max");
         }
         if(currentSpeed < minSpeed)
         {
             wheel_.motorTorque = 10;
-            Debug.Log("Min");
+            //Debug.Log("Min");
         }
 
         if(Input.GetKeyDown(KeyCode.LeftArrow))
