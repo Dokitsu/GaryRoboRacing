@@ -12,7 +12,6 @@ public class Body_Tilt : MonoBehaviour
 
     private void Start()
     {
-        
     }
 
     private void Update()
@@ -26,5 +25,6 @@ public class Body_Tilt : MonoBehaviour
         {
             bodyAngle = bodyAngle + 360;
         }
+
     }
 }
