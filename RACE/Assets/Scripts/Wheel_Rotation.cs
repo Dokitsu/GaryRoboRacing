@@ -24,10 +24,13 @@ public class Wheel_Rotation : MonoBehaviour
 
     public LayerMask groundLayer;
 
+    public string player;
+
     // Use this for initialization
     void Start()
     {
         bodyVelocity = Player.GetComponent<Rigidbody>();
+        player = transform.root.gameObject.name;
     }
 
     private void FixedUpdate()
@@ -56,21 +59,43 @@ public class Wheel_Rotation : MonoBehaviour
             //Debug.Log("Min");
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (player == "Player1")
         {
-            wheel_.brakeTorque = breakForce;
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                wheel_.brakeTorque = breakForce;
+            }
+            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                wheel_.brakeTorque = 0;
+            }
+
+            if (Grounded() && Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                bodyVelocity.AddForce(Vector3.up * 10, ForceMode.Impulse);
+            }
         }
-        if (Input.GetKeyUp(KeyCode.LeftArrow))
+
+        if (player == "Player2")
         {
-            wheel_.brakeTorque = 0;
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                wheel_.brakeTorque = breakForce;
+            }
+            if (Input.GetKeyUp(KeyCode.D))
+            {
+                wheel_.brakeTorque = 0;
+            }
+
+            if (Grounded() && Input.GetKeyDown(KeyCode.W))
+            {
+                bodyVelocity.AddForce(Vector3.up * 10, ForceMode.Impulse);
+            }
         }
 
 
 
-        if (Grounded() && Input.GetKeyDown(KeyCode.Space))
-        {
-            bodyVelocity.AddForce(Vector3.up * 10, ForceMode.Impulse);
-        }
+
     }
 
 

@@ -20,7 +20,6 @@ public class PlayerDie : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        Debug.Log("");
         if (col.gameObject.tag == "Death_Obj")
         {
             Destroy(this.gameObject);
