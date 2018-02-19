@@ -33,14 +33,12 @@ public class Campos : MonoBehaviour {
 
         if (p1.transform.position.z >= Cam.transform.localPosition.z + 18/2)
         {
-            Debug.Log("");
             cV.velocity = p1V.velocity;
             return;
         }
 
         if (p2.transform.position.z >= Cam.transform.localPosition.z + 18 / 2)
         {
-            Debug.Log("");
             cV.velocity = p1V.velocity;
             return;
         }
