@@ -9,6 +9,7 @@ public class Campos : MonoBehaviour {
     public GameObject Cam;
 
     private Rigidbody p1V;
+    private Rigidbody p2V;
     private Rigidbody cV;
 
     private float p1d;
@@ -20,6 +21,7 @@ public class Campos : MonoBehaviour {
 	void Start ()
     {
         p1V = p1.GetComponent<Rigidbody>();
+        p2V = p2.GetComponent<Rigidbody>();
         cV = Cam.GetComponent<Rigidbody>();
 	}
 	
@@ -39,7 +41,7 @@ public class Campos : MonoBehaviour {
 
         if (p2.transform.position.z >= Cam.transform.localPosition.z + 18 / 2)
         {
-            cV.velocity = p1V.velocity;
+            cV.velocity = p2V.velocity;
             return;
         }
 
