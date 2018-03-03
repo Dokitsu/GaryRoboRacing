@@ -20,11 +20,16 @@ public class Wheel_Rotation : MonoBehaviour
     private float maxSpeed = 150;
     private float minSpeed = 50;
 
-    public CapsuleCollider col;
-
-    public LayerMask groundLayer;
-
     public string player;
+
+
+    //Jump varibles
+    public LayerMask groundLayer;
+    public CapsuleCollider col;
+    public float fallMulti = 4f;
+    public float lowJump = 2f;
+
+
 
     // Use this for initialization
     void Start()
@@ -72,7 +77,16 @@ public class Wheel_Rotation : MonoBehaviour
 
             if (Grounded() && Input.GetKeyDown(KeyCode.UpArrow))
             {
-                bodyVelocity.AddForce(Vector3.up * 10, ForceMode.Impulse);
+                bodyVelocity.AddForce(Vector3.up * 8, ForceMode.Impulse);
+            }
+
+            if (bodyVelocity.velocity.y < 0)
+            {
+                bodyVelocity.velocity += Vector3.up * Physics.gravity.y * (fallMulti - 1) * Time.deltaTime;
+            }
+            else if (bodyVelocity.velocity.y > 0 && !Input.GetKey(KeyCode.UpArrow))
+            {
+                bodyVelocity.velocity += Vector3.up * Physics.gravity.y * (lowJump - 1) * Time.deltaTime;
             }
         }
 
@@ -89,11 +103,17 @@ public class Wheel_Rotation : MonoBehaviour
 
             if (Grounded() && Input.GetKeyDown(KeyCode.W))
             {
-                bodyVelocity.AddForce(Vector3.up * 10, ForceMode.Impulse);
+                bodyVelocity.AddForce(Vector3.up * 8, ForceMode.Impulse);
+            }
+
+            if (bodyVelocity.velocity.y < 0)
+            {
+                bodyVelocity.velocity += Vector3.up * Physics.gravity.y * (fallMulti - 1) * Time.deltaTime;
+            } else if(bodyVelocity.velocity.y > 0 && !Input.GetKey(KeyCode.W))
+            {
+                bodyVelocity.velocity += Vector3.up * Physics.gravity.y * (lowJump - 1) * Time.deltaTime;
             }
         }
-
-
 
 
     }

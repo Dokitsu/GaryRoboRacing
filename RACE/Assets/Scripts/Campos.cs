@@ -46,7 +46,7 @@ public class Campos : MonoBehaviour {
         }
 
 
-        Cam.transform.position = new Vector3(0, 0, avgD);
+        Cam.transform.position = new Vector3(0, 5, avgD);
 
 
 	}
