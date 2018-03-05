@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoad : MonoBehaviour {
 
-    [SerializeField]
-    string _sceneName;
-    public void Loadscene()
+    public void Track1()
     {
-        SceneManager.LoadScene(_sceneName);
+        SceneManager.LoadScene(1);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

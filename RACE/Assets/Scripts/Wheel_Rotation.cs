@@ -56,16 +56,19 @@ public class Wheel_Rotation : MonoBehaviour
         if (currentSpeed > maxSpeed)
         {
             wheel_.motorTorque = 0;
-            //Debug.Log("Max");
         }
-        if (currentSpeed < minSpeed)
-        {
-            wheel_.motorTorque = 10;
-            //Debug.Log("Min");
-        }
+       
 
         if (player == "Player1")
         {
+            if (currentSpeed < minSpeed)
+            {
+                wheel_.motorTorque = 10;
+                if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    wheel_.motorTorque = v;
+                }
+            }
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 wheel_.brakeTorque = breakForce;
@@ -92,6 +95,14 @@ public class Wheel_Rotation : MonoBehaviour
 
         if (player == "Player2")
         {
+            if (currentSpeed < minSpeed)
+            {
+                wheel_.motorTorque = 10;
+                if (Input.GetKey(KeyCode.D))
+                {
+                    wheel_.motorTorque = v;
+                }
+            }
             if (Input.GetKeyDown(KeyCode.A))
             {
                 wheel_.brakeTorque = breakForce;

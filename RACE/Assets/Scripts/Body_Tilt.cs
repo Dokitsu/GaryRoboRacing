@@ -14,7 +14,6 @@ public class Body_Tilt : MonoBehaviour
     private void Start()
     {
         player = transform.root.gameObject.name;
-        Debug.Log(player);
     }
 
     private void Update()

@@ -8,23 +8,11 @@ public class Campos : MonoBehaviour {
     public GameObject p2;
     public GameObject Cam;
 
-    private Rigidbody p1V;
-    private Rigidbody p2V;
-    private Rigidbody cV;
-
     private float p1d;
     private float p2d;
 
     private float avgD;
 
-	// Use this for initialization
-	void Start ()
-    {
-        p1V = p1.GetComponent<Rigidbody>();
-        p2V = p2.GetComponent<Rigidbody>();
-        cV = Cam.GetComponent<Rigidbody>();
-	}
-	
 	// Update is called once per frame
 	void Update ()
     {
@@ -33,20 +21,24 @@ public class Campos : MonoBehaviour {
 
         avgD = (p1d + p2d) / 2;
 
+        Cam.transform.position = new Vector3(0, 5, avgD);
+
         if (p1.transform.position.z >= Cam.transform.localPosition.z + 18/2)
         {
-            cV.velocity = p1V.velocity;
+            Cam.transform.position = p1.transform.position + new Vector3(2.6f, 4.5f, -18/2);
+            //cV.velocity = p1V.velocity;
             return;
         }
 
         if (p2.transform.position.z >= Cam.transform.localPosition.z + 18 / 2)
         {
-            cV.velocity = p2V.velocity;
+            Cam.transform.position = p2.transform.position + new Vector3(0.8f, 4.5f, -18/2);
+            //cV.velocity = p2V.velocity;
             return;
         }
 
 
-        Cam.transform.position = new Vector3(0, 5, avgD);
+        
 
 
 	}
