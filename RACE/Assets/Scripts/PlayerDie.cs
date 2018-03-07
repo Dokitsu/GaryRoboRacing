@@ -10,12 +10,13 @@ public class PlayerDie : MonoBehaviour
     bool death;
 
     public Text counterimg;
-
+    private Transform counter;
 
 	// Use this for initialization
 	void Start ()
     {
-		
+        counter = transform.Find("dedcount");
+        Debug.Log(counter);
 	}
 	
 	// Update is called once per frame
@@ -26,15 +27,19 @@ public class PlayerDie : MonoBehaviour
 		if (death == true)
         {
             count += Time.deltaTime;
+            counter.gameObject.SetActive(true);
         }
 
-        if (death == false)
+        if (death == false && count >= 0)
         {
-            if (count > 0)
-            {
-                count -= Time.deltaTime;
-            }
+            count -= Time.deltaTime;
         }
+
+        if (count <= 0)
+        {
+            counter.gameObject.SetActive(false);
+        }
+
 
         if (count > 5)
         {
