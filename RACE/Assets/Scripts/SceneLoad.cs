@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoad : MonoBehaviour {
 
-    public void Track1()
+    public void Lobby1()
     {
         SceneManager.LoadScene(1);
     }
