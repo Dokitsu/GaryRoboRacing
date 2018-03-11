@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Campos : MonoBehaviour {
 
     public GameObject p1;
@@ -36,10 +37,12 @@ public class Campos : MonoBehaviour {
             //cV.velocity = p2V.velocity;
             return;
         }
-
-
-        
-
-
 	}
+
+
+    public void setlocalcam(GameObject player[])
+    {
+        p1 = player;
+        p2 = player;
+    }
 }
