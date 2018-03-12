@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 
 public class Campos : MonoBehaviour {
@@ -14,8 +15,17 @@ public class Campos : MonoBehaviour {
 
     private float avgD;
 
-	// Update is called once per frame
-	void Update ()
+    private GameObject[] players;
+
+    void Awake()
+    {
+        players = GameObject.FindGameObjectsWithTag("Player");
+        p1 = players[0];
+        p2 = players[1];
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         p1d = p1.transform.position.z;
         p2d = p2.transform.position.z;
@@ -38,11 +48,4 @@ public class Campos : MonoBehaviour {
             return;
         }
 	}
-
-
-    public void setlocalcam(GameObject player[])
-    {
-        p1 = player;
-        p2 = player;
-    }
 }

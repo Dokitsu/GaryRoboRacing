@@ -15,51 +15,14 @@ Platform assembly: D:\Year 2 University work\Group game Gary\GaryRoboRacing\Buil
 Loading D:\Year 2 University work\Group game Gary\GaryRoboRacing\Build tests\GRB v1.2_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: D:\Year 2 University work\Group game Gary\GaryRoboRacing\Build tests\GRB v1.2_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading D:\Year 2 University work\Group game Gary\GaryRoboRacing\Build tests\GRB v1.2_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.017 seconds
+- Completed reload, in  0.101 seconds
 Platform assembly: D:\Year 2 University work\Group game Gary\GaryRoboRacing\Build tests\GRB v1.2_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\Year 2 University work\Group game Gary\GaryRoboRacing\Build tests\GRB v1.2_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.026044 ms
+UnloadTime: 0.903457 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 57a4 -> priority: 1 
-  Thread -> id: 1998 -> priority: 1 
-Socket: bind failed, error: Only one usage of each socket address (protocol/network address/port) is normally permitted.
-Cannot open socket on ip {*} and port {7777}; check please your network, most probably port has been already occupied
- 
-(Filename:  Line: 578)
-
-StartServer listen failed.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.952621 ms
-
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 965.
-Total: 1.746938 ms (FindLiveObjects: 0.113517 ms CreateObjectMapping: 0.106495 ms MarkObjects: 1.506152 ms  DeleteObjects: 0.019894 ms)
-
-MatchMakingClient ListMatches :https://mm.unet.unity3d.com/json/reply/ListMatchRequest
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-MatchMakingClient Join :https://mm.unet.unity3d.com/json/reply/JoinMatchRequest
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
- 
-(Filename:  Line: 481)
-
-DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
- 
-(Filename:  Line: 481)
-
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.302517 ms
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1219.
-Total: 1.284676 ms (FindLiveObjects: 0.111761 ms CreateObjectMapping: 0.040082 ms MarkObjects: 0.838506 ms  DeleteObjects: 0.293448 ms)
-
+  Thread -> id: 2a8 -> priority: 1 
+  Thread -> id: 594c -> priority: 1 
