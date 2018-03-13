@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\PlayerDie.cs" />
     <Compile Include="Assets\Scripts\Player_Movement.cs" />
     <Compile Include="Assets\Scripts\SceneLoad.cs" />
+    <Compile Include="Assets\Scripts\Tilespawner.cs" />
     <Compile Include="Assets\Scripts\Wheel_Rotation.cs" />
   </ItemGroup>
   <ItemGroup>
