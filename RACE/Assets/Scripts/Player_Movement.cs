@@ -20,6 +20,12 @@ public class Player_Movement : NetworkBehaviour
     public GameObject player;
     private Rigidbody pRigidBody;
 
+    //Jump varibles
+    public LayerMask groundLayer;
+    public CapsuleCollider col;
+    public float fallMulti = 4f;
+    public float lowJump = 2f;
+
     void Start()
     {
         if (!isLocalPlayer)
@@ -28,6 +34,7 @@ public class Player_Movement : NetworkBehaviour
             return;
         }
         pRigidBody = player.GetComponent<Rigidbody>();
+        col = player.GetComponent<CapsuleCollider>();
     }
 
     void FixedUpdate()
@@ -63,7 +70,17 @@ public class Player_Movement : NetworkBehaviour
             wheel_.brakeTorque = 0;
         }
 
+
+        if (Grounded() && Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Debug.Log("GARYBUNJUMP");
+            pRigidBody.AddForce(Vector3.up * 8, ForceMode.Impulse);
+        }
     }
 
+    private bool Grounded()
+    {
+        return Physics.CheckCapsule(col.bounds.center, new Vector3(col.bounds.center.x, col.bounds.min.y, col.bounds.center.z), col.radius, groundLayer);
+    }
 
 }

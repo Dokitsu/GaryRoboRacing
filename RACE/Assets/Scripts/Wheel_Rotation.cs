@@ -59,8 +59,8 @@ public class Wheel_Rotation : MonoBehaviour
         }
        
 
-        if (player == "Player1")
-        {
+        //if (player == "Player1")
+        //{
             if (currentSpeed < minSpeed)
             {
                 wheel_.motorTorque = 10;
@@ -91,40 +91,40 @@ public class Wheel_Rotation : MonoBehaviour
             {
                 bodyVelocity.velocity += Vector3.up * Physics.gravity.y * (lowJump - 1) * Time.deltaTime;
             }
-        }
+        //}
 
-        if (player == "Player2")
-        {
-            if (currentSpeed < minSpeed)
-            {
-                wheel_.motorTorque = 10;
-                if (Input.GetKey(KeyCode.D))
-                {
-                    wheel_.motorTorque = v;
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                wheel_.brakeTorque = breakForce;
-            }
-            if (Input.GetKeyUp(KeyCode.D))
-            {
-                wheel_.brakeTorque = 0;
-            }
+        //if (player == "Player2")
+        //{
+        //    if (currentSpeed < minSpeed)
+        //    {
+        //        wheel_.motorTorque = 10;
+        //        if (Input.GetKey(KeyCode.D))
+        //        {
+        //            wheel_.motorTorque = v;
+        //        }
+        //    }
+        //    if (Input.GetKeyDown(KeyCode.A))
+        //    {
+        //        wheel_.brakeTorque = breakForce;
+        //    }
+        //    if (Input.GetKeyUp(KeyCode.D))
+        //    {
+        //        wheel_.brakeTorque = 0;
+        //    }
 
-            if (Grounded() && Input.GetKeyDown(KeyCode.W))
-            {
-                bodyVelocity.AddForce(Vector3.up * 8, ForceMode.Impulse);
-            }
+        //    if (Grounded() && Input.GetKeyDown(KeyCode.W))
+        //    {
+        //        bodyVelocity.AddForce(Vector3.up * 8, ForceMode.Impulse);
+        //    }
 
-            if (bodyVelocity.velocity.y < 0)
-            {
-                bodyVelocity.velocity += Vector3.up * Physics.gravity.y * (fallMulti - 1) * Time.deltaTime;
-            } else if(bodyVelocity.velocity.y > 0 && !Input.GetKey(KeyCode.W))
-            {
-                bodyVelocity.velocity += Vector3.up * Physics.gravity.y * (lowJump - 1) * Time.deltaTime;
-            }
-        }
+        //    if (bodyVelocity.velocity.y < 0)
+        //    {
+        //        bodyVelocity.velocity += Vector3.up * Physics.gravity.y * (fallMulti - 1) * Time.deltaTime;
+        //    } else if(bodyVelocity.velocity.y > 0 && !Input.GetKey(KeyCode.W))
+        //    {
+        //        bodyVelocity.velocity += Vector3.up * Physics.gravity.y * (lowJump - 1) * Time.deltaTime;
+        //    }
+        //}
 
 
     }
