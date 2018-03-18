@@ -11,7 +11,7 @@ public class Tilespawner : MonoBehaviour {
     private float tileLength = 40f;
     private int dropoff = 6;
 
-    private float inzone = 60f;
+    private float inzone = 80f;
     private int lastfab = 0;
 
     private List<GameObject> actiles;

@@ -6,9 +6,10 @@ using UnityEngine.Networking;
 
 public class Campos : MonoBehaviour {
 
+    public static Campos cammy;
+
     public GameObject p1;
     public GameObject p2;
-    public GameObject Cam;
 
     private float p1d;
     private float p2d;
@@ -17,11 +18,16 @@ public class Campos : MonoBehaviour {
 
     private GameObject[] players;
 
-    void Awake()
+
+    void Start()
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
-        p1 = players[0];
-        p2 = players[1];
+        cammy = this;
+    }
+
+    public void camset(GameObject player)
+    {
+        p1 = player;
+        p2 = player;
     }
 
     // Update is called once per frame
@@ -32,20 +38,20 @@ public class Campos : MonoBehaviour {
 
         avgD = (p1d + p2d) / 2;
 
-        Cam.transform.position = new Vector3(0, 5, avgD);
+        transform.position = new Vector3(20, 5, avgD);
 
-        if (p1.transform.position.z >= Cam.transform.localPosition.z + 18/2)
+        if (p1.transform.position.z >= transform.localPosition.z)
         {
-            Cam.transform.position = p1.transform.position + new Vector3(2.6f, 4.5f, -18/2);
+            transform.position = p1.transform.position + new Vector3(20f, 5f, 0f);
             //cV.velocity = p1V.velocity;
             return;
         }
 
-        if (p2.transform.position.z >= Cam.transform.localPosition.z + 18 / 2)
+        if (p2.transform.position.z >= transform.localPosition.z)
         {
-            Cam.transform.position = p2.transform.position + new Vector3(0.8f, 4.5f, -18/2);
+            transform.position = p2.transform.position + new Vector3(20f, 5f, 0f);
             //cV.velocity = p2V.velocity;
             return;
         }
-	}
+    }
 }
