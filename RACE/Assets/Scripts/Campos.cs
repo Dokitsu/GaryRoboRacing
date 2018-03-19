@@ -26,8 +26,15 @@ public class Campos : MonoBehaviour {
 
     public void camset(GameObject player)
     {
-        p1 = player;
-        p2 = player;
+        if (p1 == null)
+        {
+            p1 = player;
+        }
+        else if (p1 != null)
+        {
+            p2 = player;
+        }
+
     }
 
     // Update is called once per frame
@@ -40,18 +47,18 @@ public class Campos : MonoBehaviour {
 
         transform.position = new Vector3(20, 5, avgD);
 
-        if (p1.transform.position.z >= transform.localPosition.z)
-        {
-            transform.position = p1.transform.position + new Vector3(20f, 5f, 0f);
-            //cV.velocity = p1V.velocity;
-            return;
-        }
+        //if (p1.transform.position.z >= transform.localPosition.z)
+        //{
+        //    transform.position = p1.transform.position + new Vector3(20f, 5f, 0f);
+        //    //cV.velocity = p1V.velocity;
+        //    return;
+        //}
 
-        if (p2.transform.position.z >= transform.localPosition.z)
-        {
-            transform.position = p2.transform.position + new Vector3(20f, 5f, 0f);
-            //cV.velocity = p2V.velocity;
-            return;
-        }
+        //if (p2.transform.position.z >= transform.localPosition.z)
+        //{
+        //    transform.position = p2.transform.position + new Vector3(20f, 5f, 0f);
+        //    //cV.velocity = p2V.velocity;
+        //    return;
+        //}
     }
 }
