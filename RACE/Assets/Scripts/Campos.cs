@@ -11,6 +11,9 @@ public class Campos : MonoBehaviour {
     public GameObject p1;
     public GameObject p2;
 
+    public GameObject cam1;
+    public GameObject cam2;
+
     private float p1d;
     private float p2d;
 
@@ -50,13 +53,23 @@ public class Campos : MonoBehaviour {
         if (p1.transform.position.z >= transform.localPosition.z + 15)
         {
             transform.position = new Vector3(20f, 5f, p1.transform.position.z - 15);
+            cam2.SetActive(true);
             return;
+        }
+        else
+        {
+            cam2.SetActive(false);
         }
 
         if (p2.transform.position.z >= transform.localPosition.z + 15)
         {
             transform.position = new Vector3(20f, 5f, p2.transform.position.z - 15);
+            cam1.SetActive(true);
             return;
+        }
+        else
+        {
+            cam1.SetActive(false);
         }
     }
 }
