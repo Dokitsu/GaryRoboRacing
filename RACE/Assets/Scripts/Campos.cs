@@ -47,18 +47,16 @@ public class Campos : MonoBehaviour {
 
         transform.position = new Vector3(20, 5, avgD);
 
-        //if (p1.transform.position.z >= transform.localPosition.z)
-        //{
-        //    transform.position = p1.transform.position + new Vector3(20f, 5f, 0f);
-        //    //cV.velocity = p1V.velocity;
-        //    return;
-        //}
+        if (p1.transform.position.z >= transform.localPosition.z + 15)
+        {
+            transform.position = new Vector3(20f, 5f, p1.transform.position.z - 15);
+            return;
+        }
 
-        //if (p2.transform.position.z >= transform.localPosition.z)
-        //{
-        //    transform.position = p2.transform.position + new Vector3(20f, 5f, 0f);
-        //    //cV.velocity = p2V.velocity;
-        //    return;
-        //}
+        if (p2.transform.position.z >= transform.localPosition.z + 15)
+        {
+            transform.position = new Vector3(20f, 5f, p2.transform.position.z - 15);
+            return;
+        }
     }
 }
