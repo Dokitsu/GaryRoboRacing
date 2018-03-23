@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Body_Tilt.cs" />
     <Compile Include="Assets\Scripts\Campos.cs" />
     <Compile Include="Assets\Scripts\Camset.cs" />
+    <Compile Include="Assets\Scripts\Music_Controller.cs" />
     <Compile Include="Assets\Scripts\OBJDestroy.cs" />
     <Compile Include="Assets\Scripts\PlayerDie.cs" />
     <Compile Include="Assets\Scripts\Player_Movement.cs" />
