@@ -1,0 +1,22 @@
+print "Starting maya loading and fbx conversion \n";
+	
+if (`file -q -exists "D:/Year 2 University work/Group game Gary/GaryRoboRacing/RACE/Assets/Maya binary files/Skin 3/CyclopsBotWheel.mb"`)
+{		
+	file -o "D:/Year 2 University work/Group game Gary/GaryRoboRacing/RACE/Assets/Maya binary files/Skin 3/CyclopsBotWheel.mb";
+	FBXExportEmbeddedTextures -v false;
+	// FBXExportHardEdges -v true;
+	FBXExportApplyConstantKeyReducer -v false;
+	FBXExportShowUI -v false;
+
+	print "Before fbx export\n";
+	FBXExport -f "D:/Year 2 University work/Group game Gary/GaryRoboRacing/RACE/Temp/ExportedFBXFile.fbx";
+	print "after fbx export\n";
+}
+else
+	print "Could not open Maya file.";
+
+sysFile -delete "D:/Year 2 University work/Group game Gary/GaryRoboRacing/RACE/Temp/CommandPipe";
+
+$donepipeKill = `fopen "D:/Year 2 University work/Group game Gary/GaryRoboRacing/RACE/Temp/SyncPipeKill" "w"`;
+fwrite $donepipeKill "Done";
+fclose $donepipeKill;
