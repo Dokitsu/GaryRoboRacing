@@ -26,6 +26,11 @@ public class Player_Movement : NetworkBehaviour
     public float fallMulti = 4f;
     public float lowJump = 2f;
 
+    //tilt variables
+    public GameObject BodyT;
+    private float smooth = 2.0F;
+    private float tiltAngle = 15.0F;
+
     void Start()
     {
         if (!isLocalPlayer)
@@ -76,6 +81,12 @@ public class Player_Movement : NetworkBehaviour
             Debug.Log("GARYBUNJUMP");
             pRigidBody.AddForce(Vector3.up * 8, ForceMode.Impulse);
         }
+
+
+        float tiltAroundX = Input.GetAxis("Horizontal") * tiltAngle;
+
+        Quaternion target = Quaternion.Euler(0, -90, -tiltAroundX);
+        BodyT.transform.rotation = Quaternion.Slerp(BodyT.transform.rotation, target, Time.deltaTime * smooth);
     }
 
     private bool Grounded()
