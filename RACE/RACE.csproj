@@ -100,6 +100,7 @@
     <Compile Include="Assets\Scripts\SceneLoad.cs" />
     <Compile Include="Assets\Scripts\TileManager.cs" />
     <Compile Include="Assets\Scripts\Tilespawner.cs" />
+    <Compile Include="Assets\Scripts\Timer_Manager.cs" />
     <Compile Include="Assets\Scripts\Wheel_Rotation.cs" />
   </ItemGroup>
   <ItemGroup>
