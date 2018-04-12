@@ -26,6 +26,15 @@ public class Player_Movement : NetworkBehaviour
     public float fallMulti = 4f;
     public float lowJump = 2f;
 
+    //tilt variables
+    public GameObject BodyT;
+    private float smooth = 2.0F;
+    private float tiltAngle = 15.0F;
+
+    //Timer variables
+    private float timeLeft = 3;
+    private bool canMove = false;
+
     void Start()
     {
         if (!isLocalPlayer)
@@ -41,40 +50,56 @@ public class Player_Movement : NetworkBehaviour
     {
         currentSpeed = pRigidBody.velocity.sqrMagnitude;
     }
+
+
     void Update()
     {
-        
-        float v = Input.GetAxis("Horizontal") * Motor;
-        if (currentSpeed < minSpeed)
+        timeLeft -= Time.deltaTime;
+        if (timeLeft <= 0)
         {
-            wheel_.motorTorque = 10;
-            if (Input.GetKey(KeyCode.RightArrow))
+            canMove = true;
+        }
+        if(canMove == true)
+        {
+            float v = Input.GetAxis("Horizontal") * Motor;
+            if (currentSpeed < minSpeed)
+            {
+                wheel_.motorTorque = 10;
+                if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    wheel_.motorTorque = v;
+                }
+            }
+            if (currentSpeed < maxSpeed && currentSpeed > minSpeed)
             {
                 wheel_.motorTorque = v;
             }
-        }
-        if (currentSpeed < maxSpeed && currentSpeed > minSpeed)
-        {
-            wheel_.motorTorque = v;
-        }
-        if (currentSpeed > maxSpeed)
-        {
-            wheel_.motorTorque = 0;
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            wheel_.brakeTorque = breakForce;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftArrow))
-        {
-            wheel_.brakeTorque = 0;
-        }
+            if (currentSpeed > maxSpeed)
+            {
+                wheel_.motorTorque = 0;
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                wheel_.brakeTorque = breakForce;
+            }
+            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                wheel_.brakeTorque = 0;
+            }
 
 
-        if (Grounded() && Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            Debug.Log("GARYBUNJUMP");
-            pRigidBody.AddForce(Vector3.up * 8, ForceMode.Impulse);
+            if (Grounded() && Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                Debug.Log("GARYBUNJUMP");
+                pRigidBody.AddForce(Vector3.up * 8, ForceMode.Impulse);
+            }
+
+
+            float tiltAroundX = Input.GetAxis("Horizontal") * tiltAngle;
+
+            Quaternion target = Quaternion.Euler(0, -90, -tiltAroundX);
+            BodyT.transform.rotation = Quaternion.Slerp(BodyT.transform.rotation, target, Time.deltaTime * smooth);
+
         }
     }
 

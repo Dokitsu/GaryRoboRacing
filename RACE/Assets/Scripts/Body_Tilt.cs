@@ -18,26 +18,26 @@ public class Body_Tilt : MonoBehaviour
 
     private void Update()
     {
-        //if (player == "Player1")
-        //{
-            //float tiltAroundX = Input.GetAxis("Horizontal") * tiltAngle;
+        if (player == "Player1")
+        {
+            float tiltAroundX = Input.GetAxis("Horizontal") * tiltAngle;
 
-            //Quaternion target = Quaternion.Euler(tiltAroundX, 0, 0);
-            //transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
-        //}
-        //if (player == "Player2")
-        //{
-        //    float tiltAroundX = Input.GetAxis("Horizontal2") * tiltAngle;
+            Quaternion target = Quaternion.Euler(tiltAroundX, 0, 0);
+            transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
+        }
+        if (player == "Player2")
+        {
+            float tiltAroundX = Input.GetAxis("Horizontal") * tiltAngle;
 
-        //    Quaternion target = Quaternion.Euler(0, -90, -tiltAroundX);
-        //    transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
-        //}
+            Quaternion target = Quaternion.Euler(0, -90, -tiltAroundX);
+            transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
+        }
 
-        //bodyAngle = -this.transform.rotation.eulerAngles.z;
-        //if (transform.rotation.eulerAngles.z > tiltAngle)
-        //{
-        //    bodyAngle = bodyAngle + 360;
-        //}
+        bodyAngle = -this.transform.rotation.eulerAngles.z;
+        if (transform.rotation.eulerAngles.z > tiltAngle)
+        {
+            bodyAngle = bodyAngle + 360;
+        }
 
     }
 }
