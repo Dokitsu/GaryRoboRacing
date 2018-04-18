@@ -97,7 +97,7 @@ public class Player_Movement : NetworkBehaviour
 
             float tiltAroundX = Input.GetAxis("Horizontal") * tiltAngle;
 
-            Quaternion target = Quaternion.Euler(0, -90, -tiltAroundX);
+            Quaternion target = Quaternion.Euler(tiltAroundX, 0, 0);
             BodyT.transform.rotation = Quaternion.Slerp(BodyT.transform.rotation, target, Time.deltaTime * smooth);
 
         }

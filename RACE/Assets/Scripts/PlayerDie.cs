@@ -1,66 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class PlayerDie : MonoBehaviour
+public class PlayerDie : NetworkBehaviour
 {
-
-    public float count;
     bool death;
 
-    public Text counterimg;
-    private Transform counter;
-
-	// Use this for initialization
-	void Start ()
-    {
-        counter = transform.Find("dedcount");
-        Debug.Log(counter);
-	}
+    public Text gameOverText;
 	
-	// Update is called once per frame
-	void Update ()
-    {
-        counterimg.text = Mathf.RoundToInt(count).ToString();
-
-		if (death == true)
-        {
-            count += Time.deltaTime;
-            counter.gameObject.SetActive(true);
-        }
-
-        if (death == false && count >= 0)
-        {
-            count -= Time.deltaTime;
-        }
-
-        if (count <= 0)
-        {
-            counter.gameObject.SetActive(false);
-        }
-
-
-        if (count > 5)
-        {
-            Destroy(gameObject);
-        }
-	}
-
-
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == "Death_Obj")
+        if(col.gameObject.tag == "Death_OBJ")
         {
-            death = true;
+            Debug.Log("Reeeeeeeeeeeeeeeeeeeee");
+
+            RpcDied();
+
+            Invoke("BackToLobby", 3f);
+        }
+        return;
+    }
+
+    [ClientRpc]
+    void RpcDied()
+    {
+        if (isLocalPlayer)
+        {
+            gameOverText.text = "You Lose...";
+        }
+        else
+        {
+            gameOverText.text = "You Win!!";
         }
     }
 
-    void OnCollisionExit(Collision col)
+    void BackToLobby()
     {
-        if (col.gameObject.tag == "Death_Obj")
-        {
-            death = false;
-        }
+        FindObjectOfType<NetworkLobbyManager>().ServerReturnToLobby();
     }
 }
