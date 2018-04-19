@@ -12,7 +12,8 @@ public class PlayerDie : NetworkBehaviour
 	
     void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.tag == "Death_OBJ")
+        Debug.Log(col.ToString());
+        if (col.gameObject.tag == "Death_OBJ")
         {
             Debug.Log("Reeeeeeeeeeeeeeeeeeeee");
 
