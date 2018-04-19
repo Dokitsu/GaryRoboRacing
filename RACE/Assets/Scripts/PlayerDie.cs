@@ -12,8 +12,8 @@ public class PlayerDie : NetworkBehaviour
 	
     void OnCollisionEnter(Collision col)
     {
-        Debug.Log(col.ToString());
-        if (col.gameObject.tag == "Death_OBJ")
+        //Debug.Log(col.gameObject.name);
+        if (col.gameObject.name == "cam" && col.gameObject.layer == LayerMask.NameToLayer("Death"))
         {
             Debug.Log("Reeeeeeeeeeeeeeeeeeeee");
 
