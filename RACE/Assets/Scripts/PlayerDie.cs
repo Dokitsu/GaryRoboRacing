@@ -6,20 +6,17 @@ using UnityEngine.UI;
 
 public class PlayerDie : NetworkBehaviour
 {
-    bool death;
+    Text gameOverText;
 
-    public Text gameOverText;
+    GameObject mainCamera;
 	
     void OnCollisionEnter(Collision col)
     {
-        //Debug.Log(col.gameObject.name);
         if (col.gameObject.name == "cam" && col.gameObject.layer == LayerMask.NameToLayer("Death"))
         {
-            Debug.Log("Reeeeeeeeeeeeeeeeeeeee");
-
             RpcDied();
 
-            Invoke("BackToLobby", 3f);
+            Invoke("BackToLobby", 5f);
         }
         return;
     }
@@ -27,13 +24,18 @@ public class PlayerDie : NetworkBehaviour
     [ClientRpc]
     void RpcDied()
     {
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+
+        mainCamera.transform.eulerAngles = new Vector3(-45,-90,0);
+        gameOverText = GameObject.FindObjectOfType<Text>();
+
         if (isLocalPlayer)
         {
-            gameOverText.text = "You Lose...";
+            gameOverText.text = "You Lost...";
         }
         else
         {
-            gameOverText.text = "You Win!!";
+            gameOverText.text = "You won!";
         }
     }
 

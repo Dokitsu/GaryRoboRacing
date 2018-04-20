@@ -90,7 +90,6 @@ public class Player_Movement : NetworkBehaviour
 
             if (Grounded() && Input.GetKeyDown(KeyCode.UpArrow))
             {
-                Debug.Log("GARYBUNJUMP");
                 pRigidBody.AddForce(Vector3.up * 8, ForceMode.Impulse);
             }
 

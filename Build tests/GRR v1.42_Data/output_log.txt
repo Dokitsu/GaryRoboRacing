@@ -1,0 +1,116 @@
+Initialize engine version: 5.6.2f1 (a2913c821e27)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1060 6GB (ID=0x1c03)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   23.21.13.8813
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Year 2 University work\Group game Gary\GaryRoboRacing\Build tests\GRR v1.42_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Year 2 University work\Group game Gary\GaryRoboRacing\Build tests\GRR v1.42_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Year 2 University work\Group game Gary\GaryRoboRacing\Build tests\GRR v1.42_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Year 2 University work\Group game Gary\GaryRoboRacing\Build tests\GRR v1.42_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Year 2 University work\Group game Gary\GaryRoboRacing\Build tests\GRR v1.42_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Year 2 University work\Group game Gary\GaryRoboRacing\Build tests\GRR v1.42_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Year 2 University work\Group game Gary\GaryRoboRacing\Build tests\GRR v1.42_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Year 2 University work\Group game Gary\GaryRoboRacing\Build tests\GRR v1.42_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.019 seconds
+Platform assembly: D:\Year 2 University work\Group game Gary\GaryRoboRacing\Build tests\GRR v1.42_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Year 2 University work\Group game Gary\GaryRoboRacing\Build tests\GRR v1.42_Data\Managed\System.dll (this message is harmless)
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initialized touch support.
+UnloadTime: 1.036867 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 60c8 -> priority: 1 
+  Thread -> id: 5ae0 -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.697794 ms
+
+Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 955.
+Total: 0.622003 ms (FindLiveObjects: 0.028379 ms CreateObjectMapping: 0.028379 ms MarkObjects: 0.433003 ms  DeleteObjects: 0.131363 ms)
+
+MatchMakingClient Create :https://mm.unet.unity3d.com/json/reply/CreateMatchRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
+ 
+(Filename:  Line: 481)
+
+DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
+ 
+(Filename:  Line: 481)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.367467 ms
+NullReferenceException: Object reference not set to an instance of an object
+  at Campos.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 7863.
+Total: 4.242848 ms (FindLiveObjects: 0.317438 ms CreateObjectMapping: 0.138385 ms MarkObjects: 1.524289 ms  DeleteObjects: 2.261565 ms)
+
+HandleTransform no gameObject
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at Campos.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at Campos.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.GameObject:get_transform ()
+  at Campos.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+HandleTransform no gameObject
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+UnloadTime: 5.176731 ms
+
+Unloading 720 unused Assets to reduce memory usage. Loaded Objects now: 1159.
+Total: 2.282044 ms (FindLiveObjects: 0.081919 ms CreateObjectMapping: 0.055003 ms MarkObjects: 0.921302 ms  DeleteObjects: 1.222942 ms)
+
+HandleTransform no gameObject
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Log: connection {1} has been disconnected by timeout; address {::ffff:52.58.14.64:9999} time {49100}, last rec time {47084} rtt {68} timeout {2000}
+ServerDisconnected due to error: Timeout
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+MatchMakingClient Destroy :https://mm.unet.unity3d.com/json/reply/DestroyMatchRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+MatchMakingClient DropConnection :https://mm.unet.unity3d.com/json/reply/DropConnectionRequest
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.468404 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 997.
+Total: 1.738450 ms (FindLiveObjects: 0.085430 ms CreateObjectMapping: 0.066705 ms MarkObjects: 1.569637 ms  DeleteObjects: 0.015798 ms)
+
+Releasing render texture that is set as Camera.targetTexture!
+ 
+(Filename:  Line: 3424)
+
