@@ -5,28 +5,43 @@ using UnityEngine.UI;
 
 public class Timer_Manager : MonoBehaviour
 {
-    public Text text;
-    private float timeLeft = 4;
+    public GameObject no3, no2, no1, go;
+    private float timeLeft = 3;
     private bool canCount = true;
-    public GameObject timerObj;
 
     void Update()
     {
         if (canCount == true)
-        {
+        { 
             timeLeft -= Time.deltaTime;
-            if (timeLeft > 0)
+            Debug.Log(timeLeft);
+            if (timeLeft <= 3 && timeLeft > 2)
             {
-                text.text = "" + (int)timeLeft;
+                Debug.Log("3");
+                no3.SetActive(true);
             }
-            else if (timeLeft == 0)
+            else if (timeLeft <= 2 && timeLeft > 1)
             {
-                text.text = "Go!";
+                Debug.Log("2");
+                no3.SetActive(false);
+                no2.SetActive(true);
             }
-            else if (timeLeft < 0)
+            else if (timeLeft <= 1 && timeLeft > 0)
             {
+                Debug.Log("1");
+                no2.SetActive(false);
+                no1.SetActive(true);
+            }
+            else if (timeLeft <= 0 && timeLeft > -1)
+            {
+                Debug.Log("go");
+                no1.SetActive(false);
+                go.SetActive(true);     
+            }
+            else if (timeLeft <= -1)
+            {
+                go.SetActive(false);
                 canCount = false;
-                timerObj.SetActive(false);
             }
         }
     }
