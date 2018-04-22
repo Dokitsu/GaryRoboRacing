@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerDie : NetworkBehaviour
 {
-    Text gameOverText;
+    Text winCondition;
 
     GameObject mainCamera;
 	
@@ -27,15 +27,16 @@ public class PlayerDie : NetworkBehaviour
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         mainCamera.transform.eulerAngles = new Vector3(-45,-90,0);
-        gameOverText = GameObject.FindObjectOfType<Text>();
+
+        winCondition = GameObject.FindObjectOfType<Text>();
 
         if (isLocalPlayer)
         {
-            gameOverText.text = "You Lost...";
+            winCondition.text = "You lose";
         }
         else
         {
-            gameOverText.text = "You won!";
+            winCondition.text = "You Win";
         }
     }
 
