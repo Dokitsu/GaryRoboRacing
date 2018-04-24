@@ -6,10 +6,21 @@ using UnityEngine.UI;
 
 public class PlayerDie : NetworkBehaviour
 {
-    Text winCondition;
+    //Text winCondition;
+
+    GameObject winC;
+    GameObject loseC;
 
     GameObject mainCamera;
-	
+    void Awake()
+    {
+        winC = GameObject.Find("Win");
+        Debug.Log(winC);
+
+        loseC = GameObject.Find("Lose");
+        Debug.Log(loseC);
+    }
+
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.name == "cam" && col.gameObject.layer == LayerMask.NameToLayer("Death"))
@@ -28,15 +39,13 @@ public class PlayerDie : NetworkBehaviour
 
         mainCamera.transform.eulerAngles = new Vector3(-45,-90,0);
 
-        winCondition = GameObject.FindObjectOfType<Text>();
-
         if (isLocalPlayer)
         {
-            winCondition.text = "You lose";
+            loseC.SetActive(true);
         }
         else
         {
-            winCondition.text = "You Win";
+            winC.SetActive(true);
         }
     }
 

@@ -32,7 +32,7 @@ public class Player_Movement : NetworkBehaviour
     private float tiltAngle = 15.0F;
 
     //Timer variables
-    private float timeLeft = 3;
+    private float timeLeft = 6;
     private bool canMove = false;
 
     void Start()
