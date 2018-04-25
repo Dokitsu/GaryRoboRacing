@@ -9,7 +9,7 @@ public class TileManager : MonoBehaviour
 
     //variables for spawning
     private Transform playerTransform;
-    private float spawnZ = 20.0f;
+    private float spawnZ = 40.0f;
     private float tileLength = 80.0f;
     private int numOfTiles = 3;
 

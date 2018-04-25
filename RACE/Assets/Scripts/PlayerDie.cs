@@ -13,16 +13,13 @@ public class PlayerDie : NetworkBehaviour
     void Awake()
     {
         winC = GameObject.Find("Win");
-        Debug.Log(winC);
 
         loseC = GameObject.Find("Lose");
-        Debug.Log(loseC);
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnControllerColliderHit(ControllerColliderHit col)
     {
-        Debug.Log("Hit death wall");
-        if (col.gameObject.name == "cam" && col.gameObject.layer == LayerMask.NameToLayer("Death"))
+        if (col.gameObject.name == "DeathCube")
         {
             RpcDied();
 
@@ -34,6 +31,7 @@ public class PlayerDie : NetworkBehaviour
     [ClientRpc]
     void RpcDied()
     {
+        Debug.Log("REEEEEEEEEEE");
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         mainCamera.transform.eulerAngles = new Vector3(-45,-90,0);
