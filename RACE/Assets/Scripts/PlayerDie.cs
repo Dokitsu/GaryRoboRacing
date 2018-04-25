@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class PlayerDie : NetworkBehaviour
 {
-    //Text winCondition;
-
     GameObject winC;
     GameObject loseC;
 
@@ -23,6 +21,7 @@ public class PlayerDie : NetworkBehaviour
 
     void OnCollisionEnter(Collision col)
     {
+        Debug.Log("Hit death wall");
         if (col.gameObject.name == "cam" && col.gameObject.layer == LayerMask.NameToLayer("Death"))
         {
             RpcDied();

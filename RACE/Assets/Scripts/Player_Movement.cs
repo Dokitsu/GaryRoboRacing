@@ -5,26 +5,11 @@ using UnityEngine.Networking;
 
 public class Player_Movement : NetworkBehaviour
 {
-    //force that drives the engine
-    private float Motor = 30;
-
-    //the wheelcollider on the local gameobject
-    public WheelCollider wheel_;
-
-    //Speeds of the robot and the limits
-    private float currentSpeed;
-    private float maxSpeed = 150;
-    private float minSpeed = 50;
-    private float breakForce = 100;
-
-    public GameObject player;
-    private Rigidbody pRigidBody;
-
-    //Jump varibles
-    public LayerMask groundLayer;
-    public CapsuleCollider col;
-    public float fallMulti = 4f;
-    public float lowJump = 2f;
+    //mover variables
+    private float speed = 10f;
+    private float jumpForce = 30f;
+    private float gravity = 90f;
+    private Vector3 directionVector = Vector3.zero;
 
     //tilt variables
     public GameObject BodyT;
@@ -42,18 +27,11 @@ public class Player_Movement : NetworkBehaviour
             Destroy(this);
             return;
         }
-        pRigidBody = player.GetComponent<Rigidbody>();
-        col = player.GetComponent<CapsuleCollider>();
     }
-
-    void FixedUpdate()
-    {
-        currentSpeed = pRigidBody.velocity.sqrMagnitude;
-    }
-
 
     void Update()
     {
+        CharacterController controller = gameObject.GetComponent<CharacterController>();
         timeLeft -= Time.deltaTime;
         if (timeLeft <= 0)
         {
@@ -61,50 +39,41 @@ public class Player_Movement : NetworkBehaviour
         }
         if(canMove == true)
         {
-            float v = Input.GetAxis("Horizontal") * Motor;
-            if (currentSpeed < minSpeed)
+
+            if (controller.isGrounded == true && Input.GetKey(KeyCode.RightArrow) == true)
             {
-                wheel_.motorTorque = 10;
-                if (Input.GetKey(KeyCode.RightArrow))
+
+                directionVector = new Vector3(0, 0, Input.GetAxis("Horizontal") * speed);
+                directionVector = transform.TransformDirection(directionVector);
+
+                if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
-                    wheel_.motorTorque = v;
+                    directionVector.y = jumpForce;
                 }
+
+                float tiltAroundX = Input.GetAxis("Horizontal") * tiltAngle;
+                Quaternion target = Quaternion.Euler(tiltAroundX, 0, 0);
+                BodyT.transform.rotation = Quaternion.Slerp(BodyT.transform.rotation, target, Time.deltaTime * smooth);
             }
-            if (currentSpeed < maxSpeed && currentSpeed > minSpeed)
+            else if (controller.isGrounded && Input.GetKey(KeyCode.RightArrow) == false)
             {
-                wheel_.motorTorque = v;
-            }
-            if (currentSpeed > maxSpeed)
-            {
-                wheel_.motorTorque = 0;
-            }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                wheel_.brakeTorque = breakForce;
-            }
-            if (Input.GetKeyUp(KeyCode.LeftArrow))
-            {
-                wheel_.brakeTorque = 0;
+                directionVector = new Vector3(0, 0, 5);
+                directionVector = transform.TransformDirection(directionVector);
+
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    directionVector.y = jumpForce;
+                }
+
+                float tiltAroundX = Input.GetAxis("Horizontal") * tiltAngle;
+                Quaternion target = Quaternion.Euler(tiltAroundX, 0, 0);
+                BodyT.transform.rotation = Quaternion.Slerp(BodyT.transform.rotation, target, Time.deltaTime * smooth);
             }
 
+            directionVector.y -= gravity * Time.deltaTime;
 
-            if (Grounded() && Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                pRigidBody.AddForce(Vector3.up * 8, ForceMode.Impulse);
-            }
-
-
-            float tiltAroundX = Input.GetAxis("Horizontal") * tiltAngle;
-
-            Quaternion target = Quaternion.Euler(tiltAroundX, 0, 0);
-            BodyT.transform.rotation = Quaternion.Slerp(BodyT.transform.rotation, target, Time.deltaTime * smooth);
+            controller.Move(directionVector * Time.deltaTime);
 
         }
     }
-
-    private bool Grounded()
-    {
-        return Physics.CheckCapsule(col.bounds.center, new Vector3(col.bounds.center.x, col.bounds.min.y, col.bounds.center.z), col.radius, groundLayer);
-    }
-
 }
