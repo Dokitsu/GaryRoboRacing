@@ -10,6 +10,8 @@ public class Player_Movement : NetworkBehaviour
     private float jumpForce = 30f;
     private float gravity = 90f;
     private Vector3 directionVector = Vector3.zero;
+    private Vector3 movingVector;
+    private Vector3 afkVector;
 
     //tilt variables
     public GameObject BodyT;
@@ -27,6 +29,8 @@ public class Player_Movement : NetworkBehaviour
             Destroy(this);
             return;
         }
+        movingVector = new Vector3(0, 0, speed);
+        afkVector = new Vector3(0, 0, speed - 5);
     }
 
     void Update()
@@ -43,7 +47,7 @@ public class Player_Movement : NetworkBehaviour
             if (controller.isGrounded == true && Input.GetKey(KeyCode.RightArrow) == true)
             {
 
-                directionVector = new Vector3(0, 0, Input.GetAxis("Horizontal") * speed);
+                directionVector = Vector3.Lerp(directionVector,movingVector,Time.deltaTime * smooth);
                 directionVector = transform.TransformDirection(directionVector);
 
                 if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -57,7 +61,7 @@ public class Player_Movement : NetworkBehaviour
             }
             else if (controller.isGrounded && Input.GetKey(KeyCode.RightArrow) == false)
             {
-                directionVector = new Vector3(0, 0, 5);
+                directionVector = Vector3.Lerp(directionVector, afkVector, Time.deltaTime * smooth);
                 directionVector = transform.TransformDirection(directionVector);
 
                 if (Input.GetKeyDown(KeyCode.UpArrow))
