@@ -15,12 +15,13 @@ public class OBJDestroy : MonoBehaviour {
 
     }
 
-		void OnCollisionEnter(Collision collision)
-        {
-            if (collision.gameObject.tag == "OBJ")
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "OBJ")
         {
             Destroy(collision.gameObject);
         }
-        }
+    }
 	
 }
