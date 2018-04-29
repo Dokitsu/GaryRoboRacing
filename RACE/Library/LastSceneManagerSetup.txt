@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_Scenes/Networked_Track1.unity
+- path: Assets/_Scenes/Main Menu.unity
   isLoaded: 1
   isActive: 1
