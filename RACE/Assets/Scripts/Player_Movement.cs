@@ -6,7 +6,8 @@ using UnityEngine.Networking;
 public class Player_Movement : NetworkBehaviour
 {
     //mover variables
-    private float speed = 10f;
+    private float maxSpeed = 10f;
+    private float playerSpeed = 0f;
     private float jumpForce = 30f;
     private float gravity = 90f;
     private Vector3 directionVector = Vector3.zero;
@@ -22,35 +23,37 @@ public class Player_Movement : NetworkBehaviour
     private float timeLeft = 6;
     private bool canMove = false;
 
-    public Player_Movement bum;
+    public Player_Movement bump;
 
     void Start()
     {
-        bum = this;
         if (!isLocalPlayer)
         {
             Destroy(this);
             return;
         }
-        movingVector = new Vector3(0, 0, speed);
-        afkVector = new Vector3(0, 0, speed - 5);
+        InvokeRepeating("MaxSpeedIncrease", 6f, 2f);
+        InvokeRepeating("SpeedIncrease", 6f, 0.1f);
+        bump = this;
+        movingVector = new Vector3(0, 0, playerSpeed);
+        afkVector = new Vector3(0, 0, playerSpeed - (playerSpeed * (0.5f)));
     }
 
     void Update()
     {
+
         CharacterController controller = gameObject.GetComponent<CharacterController>();
         timeLeft -= Time.deltaTime;
         if (timeLeft <= 0)
         {
             canMove = true;
         }
-        if(canMove == true)
+        if (canMove == true)
         {
-
             if (controller.isGrounded == true && Input.GetKey(KeyCode.RightArrow) == true)
             {
 
-                directionVector = Vector3.Lerp(directionVector,movingVector,Time.deltaTime * smooth);
+                directionVector = Vector3.Lerp(directionVector, movingVector, Time.deltaTime * smooth);
                 directionVector = transform.TransformDirection(directionVector);
 
                 if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -82,17 +85,37 @@ public class Player_Movement : NetworkBehaviour
             controller.Move(directionVector * Time.deltaTime);
 
         }
+    }
+
+
+    public void Bump()
+    {
+        playerSpeed = playerSpeed / 2;
+        movingVector = new Vector3(0, 0, playerSpeed);
+        afkVector = new Vector3(0, 0, playerSpeed - (playerSpeed * (0.5f)));
+    }
+
+    void MaxSpeedIncrease()
+    {
+        maxSpeed += 0.5f;
+        Debug.Log(maxSpeed);
+    }
+    void SpeedIncrease()
+    {
+        if (playerSpeed < maxSpeed)
+        {
+            playerSpeed += 0.5f;
+            Debug.Log("Current player speed: " + playerSpeed);
+            movingVector = new Vector3(0, 0, playerSpeed);
+            afkVector = new Vector3(0, 0, playerSpeed - (playerSpeed * (0.5f)));
+        }
         else
         {
-            //possibly a lerp or something for a gradual slow down
+            playerSpeed = maxSpeed;
+            Debug.Log("Max Speed");
+            movingVector = new Vector3(0, 0, playerSpeed);
+            afkVector = new Vector3(0, 0, playerSpeed - (playerSpeed * (0.5f)));
         }
     }
-
-
-    public void bump()
-    {
-        Debug.Log("hit");
-        canMove = false;
-        timeLeft = 0.2f;
-    }
 }
+

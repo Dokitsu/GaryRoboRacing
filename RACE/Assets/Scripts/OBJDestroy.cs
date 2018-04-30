@@ -24,7 +24,7 @@ public class OBJDestroy : MonoBehaviour {
             Destroy(collision.gameObject);
 
             bum = GetComponent<Player_Movement>();
-            bum.bump();
+            bum.Bump();
         }
     }
 	
