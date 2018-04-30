@@ -22,8 +22,11 @@ public class Player_Movement : NetworkBehaviour
     private float timeLeft = 6;
     private bool canMove = false;
 
+    public Player_Movement bum;
+
     void Start()
     {
+        bum = this;
         if (!isLocalPlayer)
         {
             Destroy(this);
@@ -79,5 +82,17 @@ public class Player_Movement : NetworkBehaviour
             controller.Move(directionVector * Time.deltaTime);
 
         }
+        else
+        {
+            //possibly a lerp or something for a gradual slow down
+        }
+    }
+
+
+    public void bump()
+    {
+        Debug.Log("hit");
+        canMove = false;
+        timeLeft = 0.2f;
     }
 }

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class OBJDestroy : MonoBehaviour {
 
+    public Player_Movement bum;
+
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -21,6 +22,9 @@ public class OBJDestroy : MonoBehaviour {
         if (collision.gameObject.tag == "OBJ")
         {
             Destroy(collision.gameObject);
+
+            bum = GetComponent<Player_Movement>();
+            bum.bump();
         }
     }
 	
