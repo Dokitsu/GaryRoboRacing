@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Timer_Manager : MonoBehaviour
 {
-    public GameObject no3, no2, no1, go, win, lose, loading, loadingText;
+    public GameObject no3, no2, no1, go, win, lose, loading, loadingText, loadingCircle;
     private float timeLeft = 6;
     private bool canCount = true;
 
@@ -20,6 +20,7 @@ public class Timer_Manager : MonoBehaviour
                 lose.SetActive(false);
                 loading.SetActive(false);
                 loadingText.SetActive(false);
+                loadingCircle.SetActive(false);
                 no3.SetActive(true);
             }
             else if (timeLeft <= 2 && timeLeft > 1)
