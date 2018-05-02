@@ -85,8 +85,18 @@ public class Player_Movement : NetworkBehaviour
             controller.Move(directionVector * Time.deltaTime);
 
         }
-    }
 
+        //for testing remove before game release
+        if (canMove == true)
+        {
+            //for testing remove before game release
+            if (controller.isGrounded == true && Input.GetKey(KeyCode.Space) == true)
+            {
+                playerSpeed += Time.deltaTime * 2;
+                maxSpeed += Time.deltaTime * 2;
+            }
+        }
+    }
 
     public void Bump()
     {
@@ -98,21 +108,21 @@ public class Player_Movement : NetworkBehaviour
     void MaxSpeedIncrease()
     {
         maxSpeed += 0.5f;
-        Debug.Log(maxSpeed);
+        //Debug.Log(maxSpeed);
     }
     void SpeedIncrease()
     {
         if (playerSpeed < maxSpeed)
         {
             playerSpeed += 0.5f;
-            Debug.Log("Current player speed: " + playerSpeed);
+            //Debug.Log("Current player speed: " + playerSpeed);
             movingVector = new Vector3(0, 0, playerSpeed);
             afkVector = new Vector3(0, 0, playerSpeed - (playerSpeed * (0.5f)));
         }
         else
         {
             playerSpeed = maxSpeed;
-            Debug.Log("Max Speed");
+            //Debug.Log("Max Speed");
             movingVector = new Vector3(0, 0, playerSpeed);
             afkVector = new Vector3(0, 0, playerSpeed - (playerSpeed * (0.5f)));
         }

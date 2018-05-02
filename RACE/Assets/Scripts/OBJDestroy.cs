@@ -6,8 +6,8 @@ public class OBJDestroy : MonoBehaviour {
 
     public Player_Movement bum;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 	}
 	
 	// Update is called once per frame
@@ -18,10 +18,10 @@ public class OBJDestroy : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.tag);
+        //Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "OBJ")
         {
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
 
             bum = GetComponent<Player_Movement>();
             bum.Bump();
