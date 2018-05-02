@@ -8,11 +8,12 @@ public class Timer_Manager : MonoBehaviour
     public GameObject no3, no2, no1, go, win, lose, loading, loadingText, loadingCircle;
     private float timeLeft = 6;
     private bool canCount = true;
+    private bool cantime = true;
 
     void Update()
     {
         if (canCount == true)
-        { 
+        {
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 3 && timeLeft > 2)
             {
@@ -22,6 +23,7 @@ public class Timer_Manager : MonoBehaviour
                 loadingText.SetActive(false);
                 loadingCircle.SetActive(false);
                 no3.SetActive(true);
+                timersound();
             }
             else if (timeLeft <= 2 && timeLeft > 1)
             {
@@ -43,6 +45,15 @@ public class Timer_Manager : MonoBehaviour
                 go.SetActive(false);
                 canCount = false;
             }
+        }
+    }
+
+    void timersound()
+    {
+        if (cantime)
+        {
+            cantime = false;
+            FindObjectOfType<audiomanager>().Playsound("timer");
         }
     }
 }

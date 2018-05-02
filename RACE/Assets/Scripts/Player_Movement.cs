@@ -25,6 +25,8 @@ public class Player_Movement : NetworkBehaviour
 
     public Player_Movement bump;
 
+    public audiomanager Audio;
+
     void Start()
     {
         if (!isLocalPlayer)
@@ -56,11 +58,6 @@ public class Player_Movement : NetworkBehaviour
                 directionVector = Vector3.Lerp(directionVector, movingVector, Time.deltaTime * smooth);
                 directionVector = transform.TransformDirection(directionVector);
 
-                if (Input.GetKeyDown(KeyCode.UpArrow))
-                {
-                    directionVector.y = jumpForce;
-                }
-
                 float tiltAroundX = Input.GetAxis("Horizontal") * tiltAngle;
                 Quaternion target = Quaternion.Euler(tiltAroundX, 0, 0);
                 BodyT.transform.rotation = Quaternion.Slerp(BodyT.transform.rotation, target, Time.deltaTime * smooth);
@@ -69,11 +66,6 @@ public class Player_Movement : NetworkBehaviour
             {
                 directionVector = Vector3.Lerp(directionVector, afkVector, Time.deltaTime * smooth);
                 directionVector = transform.TransformDirection(directionVector);
-
-                if (Input.GetKeyDown(KeyCode.UpArrow))
-                {
-                    directionVector.y = jumpForce;
-                }
 
                 float tiltAroundX = Input.GetAxis("Horizontal") * tiltAngle;
                 Quaternion target = Quaternion.Euler(tiltAroundX, 0, 0);
@@ -84,6 +76,13 @@ public class Player_Movement : NetworkBehaviour
 
             controller.Move(directionVector * Time.deltaTime);
 
+
+            if (controller.isGrounded == true && Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                directionVector.y = jumpForce;
+                //Audio.Playsound("jump");
+                FindObjectOfType<audiomanager>().Playsound("jump");
+            }
         }
 
         //for testing remove before game release
@@ -95,11 +94,17 @@ public class Player_Movement : NetworkBehaviour
                 playerSpeed += Time.deltaTime * 2;
                 maxSpeed += Time.deltaTime * 2;
             }
+            if (controller.isGrounded == true && Input.GetKey(KeyCode.Backspace) == true)
+            {
+                playerSpeed -= Time.deltaTime * 2;
+                maxSpeed -= Time.deltaTime * 2;
+            }
         }
     }
 
     public void Bump()
     {
+        FindObjectOfType<audiomanager>().Playsound("crash");
         playerSpeed = playerSpeed / 2;
         movingVector = new Vector3(0, 0, playerSpeed);
         afkVector = new Vector3(0, 0, playerSpeed - (playerSpeed * (0.5f)));

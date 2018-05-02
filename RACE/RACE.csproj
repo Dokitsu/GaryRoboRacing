@@ -99,10 +99,12 @@
     <Compile Include="Assets\Scripts\PlayerDie.cs" />
     <Compile Include="Assets\Scripts\Player_Movement.cs" />
     <Compile Include="Assets\Scripts\SceneLoad.cs" />
+    <Compile Include="Assets\Scripts\Sound.cs" />
     <Compile Include="Assets\Scripts\TileManager.cs" />
     <Compile Include="Assets\Scripts\Tilespawner.cs" />
     <Compile Include="Assets\Scripts\Timer_Manager.cs" />
     <Compile Include="Assets\Scripts\Wheel_Rotation.cs" />
+    <Compile Include="Assets\Scripts\audiomanager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Asset store files\BOXOPHOBIC\Skybox - Cubemap Extended\Shaders\Skybox - Cubemap Extended.shader" />
